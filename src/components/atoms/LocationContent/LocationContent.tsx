@@ -12,10 +12,10 @@ const LocationContent = () => {
           className="object-contain"
         />
         <div className="space-y-1 font-bold text-white">
-          <p className="sm:text-[34.87px] text-[28px] uppercase leading-[100%] tracking-[0px] ">
+          <p className="sm:text-[30px] text-[26px] uppercase leading-[100%] tracking-[0px] ">
             freedom park
           </p>
-          <p className="sm:text-[30.03px] text-[24px]">OSOBGO</p>
+          <p className="sm:text-[28.03px] text-[22px]">OSOBGO</p>
         </div>
       </div>
     </div>

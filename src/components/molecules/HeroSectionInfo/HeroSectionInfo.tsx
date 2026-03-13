@@ -15,7 +15,7 @@ const HeroSectionInfo = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex items-center justify-center flex-wrap gap-4">
+      <div className="flex items-center justify-center gap-4 max-lg:flex-wrap">
         <DateContent />
         <LocationContent />
         <AccessBtn />
