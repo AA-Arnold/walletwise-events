@@ -1,7 +1,8 @@
+import Image from "next/image";
+
 import AccessBtn from "@/components/atoms/AccessBtn/AccessBtn";
 import DateContent from "@/components/atoms/DateContent/DateContent";
 import LocationContent from "@/components/atoms/LocationContent/LocationContent";
-import Image from "next/image";
 
 const HeroSectionInfo = () => {
   return (
