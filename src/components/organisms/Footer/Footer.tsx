@@ -1,10 +1,12 @@
+import Container from "@/components/atoms/Container/Container";
 import UpperFooter from "@/components/molecules/UpperFooter/UpperFooter";
-import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-[#3E3E3E] py-6">
-      <UpperFooter />
+    <footer className="border-t border-white/5 pt-6 pb-28">
+      <Container>
+        <UpperFooter />
+      </Container>
     </footer>
   );
 };
