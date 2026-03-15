@@ -10,9 +10,9 @@ export const getTicket = async ({
   phoneNumber: string;
 }) => {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
+    // const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
     const payload = { fullName, email, phoneNumber };
-    const url = `${baseUrl}/api/v1/bred/register`;
+    const url = `https://walletwise.ng/api/v1/bred/register`;
     const { data } = await axios.post(url, payload);
     return data;
   } catch (error) {
