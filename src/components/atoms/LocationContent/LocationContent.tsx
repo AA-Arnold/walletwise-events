@@ -13,7 +13,7 @@ const LocationContent = () => {
         />
         <div className="space-y-1 font-bold text-white">
           <p className="sm:text-[30px] text-[20px] uppercase leading-[100%] tracking-[0px] ">
-            freedom park
+            Technical Field
           </p>
           <p className="sm:text-[28.03px] text-lg">OSOBGO</p>
         </div>
