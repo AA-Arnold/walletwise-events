@@ -5,8 +5,10 @@ import { useMutation } from "@tanstack/react-query";
 import { getTicket } from "../api";
 import { ApiErrorResponse } from "../types";
 import { promiseErrorFunction } from "../helpers/promiseError";
+import { useRouter } from "next/navigation";
 
 export const useGetTicket = () => {
+  const router = useRouter();
   const [userInfo, setUserInfo] = useState({
     fullName: "",
     email: "",
@@ -42,11 +44,13 @@ export const useGetTicket = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: getTicket,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log("data", data);
       resetForm();
       toast.success(
         "Ticket created successfully. Check your email for the details.",
       );
+      router.push(data?.authorization_url);
     },
     onError: (error: ApiErrorResponse) => {
       console.log("error applying for ticket", error);
