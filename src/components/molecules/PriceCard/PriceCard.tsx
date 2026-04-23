@@ -20,7 +20,7 @@ const PriceCard = ({
       <TicketCard
         title={title}
         priceSize="font-black text-[18px] sm:text-[24px] md:text-[30px] lg:text-[34.08px] leading-[1.1] tracking-[0px] font-Playfair_Display text-[#FFF5E4]"
-        titleStyle="font-light text-[7px] sm:text-[8px] md:text-[8.5px] leading-none tracking-[1px] md:tracking-[2.13px] uppercase text-white/60"
+        titleStyle="font-light text-xs leading-none tracking-[1px] md:tracking-[2.13px] uppercase text-white/60"
         price={price}
         className="justify-start"
       />

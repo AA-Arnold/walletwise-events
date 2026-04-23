@@ -47,7 +47,7 @@ export const useGetTicket = () => {
     onSuccess: (data) => {
       resetForm();
       toast.success(
-        "Ticket created successfully. Check your email for the details.",
+        "Ticket reserved. Proceed to payment to confirm your booking.",
       );
       router.push(data?.authorization_url);
     },
