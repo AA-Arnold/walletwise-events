@@ -7,7 +7,7 @@ const LowerHero = () => {
       <div className="absolute top-0 left-0 right-0 flex justify-center">
         <CircleGradient />
       </div>
-      <div className="space-y-4 flex justify-center items-center flex-col ">
+      <div className="space-y-8 flex justify-center items-center flex-col ">
         <div className="border-[7.8px] border-black w-fit p-4 z-10">
           <h6 className=" font-extrabold text-[28px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[87.46px] leading-[1.05] tracking-[2px] md:tracking-[4.14px] uppercase">
             <span>31ST</span>
