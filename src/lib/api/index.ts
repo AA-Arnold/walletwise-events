@@ -23,3 +23,22 @@ export const getTicket = async ({
     throw error;
   }
 };
+
+export const getBredTicket = async ({
+  fullName,
+  email,
+  phoneNumber,
+}: {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+}) => {
+  try {
+    const payload = { fullName, email, phoneNumber };
+    const url = `https://walletwise.ng/api/bred/register`;
+    const { data } = await axios.post(url, payload);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
