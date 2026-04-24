@@ -1,18 +1,22 @@
-import Container from "@/components/atoms/Container copy/Container";
-import Header from "@/components/atoms/Header/Header";
-import Footer from "@/components/organisms/Footer copy/Footer";
-import HeroSection from "@/components/organisms/HeroSection copy/HeroSection";
-import MainLayout from "@/components/templates/MainLayout copy/MainLayout";
+import Container from "@/components/atoms/Container/Container";
+import Footer from "@/components/organisms/Footer/Footer";
+import Header from "@/components/organisms/Header/Header";
+import HeroSection from "@/components/organisms/HeroSection/HeroSection";
+import TicketForm from "@/components/organisms/TicketForm/TicketForm";
+import TicketReservationWrap from "@/components/organisms/TicketReservationWrap/TicketReservationWrap";
+import MainLayout from "@/components/templates/MainLayout/MainLayout";
 
 export default function Home() {
   return (
     <MainLayout>
-      <Container>
-        <Header />
-        <main>
+      <Header />
+      <main>
+        <Container>
           <HeroSection />
-        </main>
-      </Container>
+        </Container>
+        <TicketReservationWrap />
+        <TicketForm />
+      </main>
       <Footer />
     </MainLayout>
   );
