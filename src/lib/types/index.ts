@@ -26,3 +26,9 @@ export interface UserType {
   wonBefore: string;
   titleWon: string;
 }
+
+export interface optionsType {
+  label: string;
+  value: string;
+  color?: string;
+}
