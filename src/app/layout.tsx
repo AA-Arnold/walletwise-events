@@ -6,6 +6,11 @@ import {
   Cinzel_Decorative,
   Cinzel,
   Playfair_Display,
+  Freehand,
+  Meie_Script,
+  Fraunces,
+  Geist,
+  Bebas_Neue,
 } from "next/font/google";
 import "./globals.css";
 
@@ -36,6 +41,33 @@ export const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair_display",
   weight: ["400", "700", "500", "600", "800", "900"],
+});
+
+export const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  weight: "400",
+});
+export const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  weight: ["400", "700", "900"],
+});
+export const freehand = Freehand({
+  subsets: ["latin"],
+  variable: "--font-freehand",
+  weight: ["400"],
+});
+export const meieScript = Meie_Script({
+  subsets: ["latin"],
+  variable: "--font-meie_script",
+  weight: ["400"],
+});
+
+export const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  variable: "--font-bebas_neue",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -87,7 +119,7 @@ export default function RootLayout({
     <html lang="en">
       <QueryProvider>
         <body
-          className={`${inter.variable} ${seaWeedScript.variable} ${cinzelDecorative.variable} ${cinzel.variable} ${playfairDisplay.variable}`}
+          className={`${inter.variable} ${seaWeedScript.variable} ${cinzelDecorative.variable} ${cinzel.variable} ${playfairDisplay.variable} ${fraunces.variable} ${geist.variable} ${freehand.variable} ${meieScript.variable} ${bebasNeue.variable}`}
         >
           {children}
           <Toaster />
