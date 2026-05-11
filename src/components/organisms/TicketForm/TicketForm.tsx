@@ -127,9 +127,6 @@ const TicketForm = () => {
                       "Buy Now"
                     )}
                   </button>
-                  <p className="font-light text-[8px] sm:text-[9px] leading-none tracking-[0.5px] md:tracking-[1.08px] text-white/60">
-                    You will be contacted to complete payment.
-                  </p>
                 </div>
               </div>
             </div>
