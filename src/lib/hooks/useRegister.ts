@@ -71,8 +71,7 @@ export const useRegister = () => {
       toast.success(
         "Application reserved. Proceed to payment to confirm your application.",
       );
-      console.log("data", data);
-      // router.push(data?.redirectUrl);
+      router.push(data?.authorization_url);
     },
     onError: (error: ApiErrorResponse) => {
       console.log("error getting application", error);
