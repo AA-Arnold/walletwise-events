@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const LowerHero = () => {
   return (
-    <div className="flex justify-center items-center sm:pt-40 pt-20 relative pb-10">
-      <div className="absolute top-0 left-0 right-0 flex justify-center">
+    <div className="flex justify-center items-center sm:pt-28 pt-20 relative pb-10">
+      <div className="absolute -top-28 max-sm:top-0 left-0 right-0 flex justify-center">
         <CircleGradient />
       </div>
       <div className="space-y-8 flex justify-center items-center flex-col ">
