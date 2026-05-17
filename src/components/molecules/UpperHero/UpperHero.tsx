@@ -3,9 +3,9 @@ import Image from "next/image";
 const UpperHero = () => {
   return (
     <div className="relative flex justify-center items-center flex-col">
-      <div className="max-w-120 h-150 max-sm:h-70 max-sm:max-w-70 w-full">
+      <div className="max-w-200 h-150 max-sm:h-70 max-sm:max-w-70 w-full">
         <Image
-          src="/assets/images/peruzzi.png"
+          src="/assets/images/peru.png"
           width={800}
           height={800}
           alt="peruzzi"
@@ -13,7 +13,7 @@ const UpperHero = () => {
           className="w-full h-auto"
         />
       </div>
-      <div className="absolute md:bottom-0 max-sm:-bottom-8 z-10 ">
+      <div className="absolute lg:-bottom-10 md:bottom-10 bottom-16 z-10 ">
         <div className="relative">
           {" "}
           <h1 className="font-cinzel_decorative font-black text-[60px] sm:text-[96px] md:text-[140px] lg:text-[170px] xl:text-[198.8px] leading-[0.95] tracking-[3.98px] text-center text-[#111111]">
