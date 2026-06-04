@@ -1,12 +1,13 @@
 import Container from "@/components/atoms/Container/Container";
+import DownloadWalletwise from "@/components/atoms/DownloadWalletwise/DownloadWalletwise";
 
 const Footer = () => {
   return (
     <footer className="">
       <div className="border-y border-[#706860]">
         <Container className="px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 grid-cols-1">
-            <div className="sm:border-r max-sm:border-b border-[#706860] px-6 py-10 space-y-6">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+            <div className="md:border-r max-lg:border-b  border-[#706860] px-6 py-10 space-y-6">
               <p className="font-light text-[8px] sm:text-[9px] leading-none tracking-[1px] md:tracking-[2.25px] uppercase text-white/60">
                 Packaged By /
               </p>
@@ -17,13 +18,16 @@ const Footer = () => {
                 Of Abuja
               </p>
             </div>
-            <div className="px-6 py-10 space-y-6">
+            <div className="px-6 py-10 space-y-6 lg:border-r  max-lg:border-b border-[#706860]">
               <p className="font-light text-[8px] sm:text-[9px] leading-none tracking-[1px] md:tracking-[2.25px] uppercase text-white/60">
                 Enquiries / Sponsorship
               </p>
               <h6 className="text-[#FFF5E4] font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22.72px] leading-normal md:leading-[38.62px] tracking-[0.5px] md:tracking-[0.91px]">
                 +234 706 803 8186 <br /> 0901 360 2097{" "}
               </h6>
+            </div>
+            <div className="py-10 max-md:w-fit">
+              <DownloadWalletwise />
             </div>
           </div>
         </Container>
