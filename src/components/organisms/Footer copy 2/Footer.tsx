@@ -1,4 +1,5 @@
 import Container from "@/components/atoms/Container copy 2/Container";
+import DownloadWalletwise from "@/components/atoms/DownloadWalletwise/DownloadWalletwise";
 
 const Footer = () => {
   return (
@@ -23,6 +24,11 @@ const Footer = () => {
             <span className="text-gray-600">©</span> 2026 Miss Indigenous
             Nigeria Beauty Pageant
           </p>
+        </div>
+        <div>
+          <div className="pt-10">
+            <DownloadWalletwise />
+          </div>
         </div>
       </Container>
     </footer>
