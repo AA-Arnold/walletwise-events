@@ -6,7 +6,7 @@ import TicketReservationWrap from "@/components/organisms/TicketReservationWrap/
 
 import MainLayout from "@/components/templates/MainLayout/MainLayout";
 
-const PeruzziPage = () => {
+const HomePage = () => {
   return (
     <MainLayout>
       <PeruzziHero />
@@ -29,4 +29,4 @@ const PeruzziPage = () => {
   );
 };
 
-export default PeruzziPage;
+export default HomePage;
