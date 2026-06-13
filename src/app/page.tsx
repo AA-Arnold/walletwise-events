@@ -1,10 +1,12 @@
 import Footer from "@/components/organisms/Footer/Footer";
 import PeruzziHero from "@/components/organisms/PeruzziHero/PeruzziHero";
 import TicketForm from "@/components/organisms/TicketForm/TicketForm";
+
 import TicketReservationWrap from "@/components/organisms/TicketReservationWrap/TicketReservationWrap";
+
 import MainLayout from "@/components/templates/MainLayout/MainLayout";
 
-const page = () => {
+const HomePage = () => {
   return (
     <MainLayout>
       <PeruzziHero />
@@ -27,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default HomePage;
