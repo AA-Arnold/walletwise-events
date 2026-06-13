@@ -1,23 +1,33 @@
-import Container from "@/components/atoms/Container/Container";
+
 import Footer from "@/components/organisms/Footer/Footer";
-import Header from "@/components/organisms/Header/Header";
-import HeroSection from "@/components/organisms/HeroSection/HeroSection";
+import PeruzziHero from "@/components/organisms/PeruzziHero/PeruzziHero";
 import TicketForm from "@/components/organisms/TicketForm/TicketForm";
+
 import TicketReservationWrap from "@/components/organisms/TicketReservationWrap/TicketReservationWrap";
+
 import MainLayout from "@/components/templates/MainLayout/MainLayout";
 
-export default function Home() {
+const HomePage = () => {
   return (
     <MainLayout>
-      <Header />
-      <main>
-        <Container>
-          <HeroSection />
-        </Container>
-        <TicketReservationWrap />
-        <TicketForm />
-      </main>
-      <Footer />
+      <PeruzziHero />
+      <TicketReservationWrap />
+      <div
+        className=""
+        style={{
+          background: "url('/assets/images/bg.svg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="bg-linear-to-b from-70% from-[#080D0F]/80 to-100% to-[#0B0D10]">
+          <TicketForm />
+          <Footer />
+        </div>
+      </div>
     </MainLayout>
   );
-}
+};
+
+export default HomePage;
