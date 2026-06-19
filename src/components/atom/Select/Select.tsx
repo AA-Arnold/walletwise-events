@@ -1,9 +1,9 @@
-import { selectOption } from "@/lib/types";
+import { optionsType } from "@/lib/types";
 import { SelectHTMLAttributes } from "react";
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
-  options: selectOption[] | string[];
+  options: optionsType[] | string[];
   placeholder?: string;
 }
 
