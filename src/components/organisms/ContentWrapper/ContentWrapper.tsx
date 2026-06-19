@@ -6,6 +6,7 @@ import Container from "@/components/atom/Container/Container";
 import EventToggle from "@/components/atom/EventToggle/EventToggle";
 import EventWrapper from "@/components/molecules/EventWrapper/EventWrapper";
 import FilterWrapper from "@/components/molecules/FilterWrapper/FilterWrapper";
+import PastEvents from "@/components/molecules/PastEvents/PastEvents";
 
 const ContentWrapper = () => {
   const [tab, setTab] = useState("Upcoming");
@@ -18,7 +19,8 @@ const ContentWrapper = () => {
         <div className="space-y-8">
           <FilterWrapper />
           <EventToggle tabs={tabs} tab={tab} onClick={setTab} />
-          <EventWrapper />
+          {tab === "Upcoming" && <EventWrapper />}
+          {tab === "Past" && <PastEvents />}
         </div>
       </Container>
     </div>
