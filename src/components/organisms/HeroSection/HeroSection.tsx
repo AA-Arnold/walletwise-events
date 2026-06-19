@@ -21,7 +21,10 @@ const HeroSection = () => {
                 <div className="flex items-center gap-2  font-semibold text-sm">
                   <span>NEXT UP</span> • <span>FRI 31ST July 2026</span>
                 </div>
-                <h1 className=" ">Peruzzi Live in Abuja</h1>
+                <h1 className="sm:text-[48px] text-[35px] leading-[100%] tracking-normal font-extrabold uppercase">
+                  Peruzzi <br />
+                  Live in Abuja
+                </h1>
                 <Link
                   href={"/peruzzi"}
                   className="flex items-center gap-2 bg-white border border-[#E5E5E5] p-3 rounded-[10px] text-[#262626] w-fit"
