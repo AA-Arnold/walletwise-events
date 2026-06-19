@@ -10,7 +10,7 @@ const HeroSection = () => {
           <div
             className="h-116.25 w-full rounded-[24px] overflow-hidden"
             style={{
-              background: "url('/assets/images/burna.png')",
+              background: "url('/assets/images/PERRUZI1.png')",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -19,11 +19,11 @@ const HeroSection = () => {
             <div className="flex w-full items-end sm:py-10 sm:px-8 p-6 h-full">
               <div className="max-w-107.25 w-full text-white space-y-2">
                 <div className="flex items-center gap-2  font-semibold text-sm">
-                  <span>NEXT UP</span> • <span>SAT 10 MAY 2025</span>
+                  <span>NEXT UP</span> • <span>FRI 31ST July 2026</span>
                 </div>
-                <h1 className=" ">AFROBEATS FESTLAGOS 2025</h1>
+                <h1 className=" ">Peruzzi Live in Abuja</h1>
                 <Link
-                  href={"/"}
+                  href={"/peruzzi"}
                   className="flex items-center gap-2 bg-white border border-[#E5E5E5] p-3 rounded-[10px] text-[#262626] w-fit"
                 >
                   <span className="text-xs">View details</span>

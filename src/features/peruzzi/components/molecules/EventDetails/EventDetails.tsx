@@ -23,7 +23,7 @@ const EventDetails = () => {
             />
             <EventInfo
               title="ONLINE TICKET"
-              desc="EVENTWALLETWISE.NG"
+              desc="EVENT.WALLETWISE.NG"
               iconUrl="/assets/icons/global-line.svg"
               className="lg:col-span-2 col-span-3 max-lg:border-t-[1.73px] border-[#DD9B59]"
               isBorder=""
