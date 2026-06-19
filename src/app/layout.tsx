@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import {
   Inter,
   Seaweed_Script,
@@ -12,6 +11,7 @@ import {
   Geist,
   Bebas_Neue,
 } from "next/font/google";
+
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -116,11 +116,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${seaWeedScript.variable} ${cinzelDecorative.variable} ${cinzel.variable} ${playfairDisplay.variable} ${fraunces.variable} ${geist.variable} ${freehand.variable} ${meieScript.variable} ${bebasNeue.variable}  h-full antialiased`}
+    >
       <QueryProvider>
-        <body
-          className={`${inter.variable} ${seaWeedScript.variable} ${cinzelDecorative.variable} ${cinzel.variable} ${playfairDisplay.variable} ${fraunces.variable} ${geist.variable} ${freehand.variable} ${meieScript.variable} ${bebasNeue.variable}`}
-        >
+        <body className="min-h-full flex flex-col">
           {children}
           <Toaster />
         </body>

@@ -1,9 +1,12 @@
-import { ReactNode } from "react";
+import Footer from "@/components/organisms/Footer/Footer";
+import Header from "@/components/organisms/Header/Header";
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen h-full relative w-full bg-linear-to-b from-0% from-[#080D0F] to-100% to-[#0B0D10]">
-      {children}
+    <div className="min-h-screen w-full overflow-hidden">
+      <Header />
+      <main className="">{children}</main>
+      <Footer />
     </div>
   );
 };
