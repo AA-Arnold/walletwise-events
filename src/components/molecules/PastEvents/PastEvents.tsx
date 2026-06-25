@@ -1,25 +1,39 @@
 import EventCard from "@/components/atom/EventCard/EventCard";
-import { dummyPastEvents } from "@/lib/constants";
+import EventCardSkeleton from "@/components/atom/skeleton/EventCardSkeleton";
 
-const PastEvents = () => {
+import { EventType } from "@/lib/types";
+
+const PastEvents = ({
+  events,
+  isLoading,
+}: {
+  events: EventType[];
+  isLoading: boolean;
+}) => {
   return (
     <div className="space-y-4">
       <h6 className="text-[#262626] font-semibold sm:text-[20px] text-lg">
         Past Events
       </h6>
       <div className="flex gap-4 flex-wrap">
-        {dummyPastEvents?.map((item) => (
-          <EventCard
-            key={item?.eventName}
-            imgUrl={item?.imgUrl}
-            category={item?.category}
-            amount={item?.amount}
-            date={item?.date}
-            eventName={item?.eventName}
-            location={item?.location}
-            link={item?.link}
-          />
-        ))}
+        {isLoading ? (
+          <EventCardSkeleton />
+        ) : (
+          <>
+            {events?.map((item) => (
+              <EventCard
+                key={item?.title}
+                imgUrl={item?.imageUrl}
+                category={item?.category}
+                amount={item?.computed.lowestTicketPrice}
+                date={item?.computed.formattedDate}
+                eventName={item?.title}
+                location={item?.address}
+                link={`/event/info/${item.eventId}`}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

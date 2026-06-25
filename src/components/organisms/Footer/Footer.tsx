@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/atom/Container/Container";
 
-import { footerLinks, socialLinks } from "@/lib/constants";
+import { categories, socialLinks, tabs } from "@/lib/constants";
+import { useGetEvents } from "@/lib/hooks/useGetEvents";
+import DownloadWalletwise from "@/components/atom/DownloadWalletwise/DownloadWalletwise";
 
 const Footer = () => {
+  const { filter, setFilter, tab, setTab } = useGetEvents();
+
   return (
     <footer className="border-t border-[#E5E5E5] py-8 w-full">
       <Container>
@@ -27,7 +33,7 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 {socialLinks?.map((item) => (
                   <a
-                    href="http://"
+                    href={item?.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     key={item.id}
@@ -45,24 +51,38 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex md:gap-30.25 sm:gap-20 gap-10 flex-wrap">
-              {footerLinks?.map((item) => (
-                <div key={item?.title} className="space-y-4">
-                  <h6 className="text-[#262626] font-semibold">
-                    {item?.title}
-                  </h6>
-                  <div className="flex flex-col gap-2">
-                    {item?.links?.map((link, index) => (
-                      <Link
-                        key={index}
-                        href={link.subTitle}
-                        className="font-[#737373] text-sm font-medium hover:text-[#5A27CC] transition-colors duration-300"
-                      >
-                        {link.subTitle}
-                      </Link>
-                    ))}
-                  </div>
+              <div className="space-y-4">
+                <h6 className="text-[#262626] font-semibold uppercase">
+                  Explore
+                </h6>
+                <div className="flex flex-col gap-2 items-start">
+                  {tabs?.map((link, index) => (
+                    <button
+                      type="button"
+                      key={index}
+                      onClick={() => setTab(link)}
+                      className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${tab === link ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
+                    >
+                      {link}
+                    </button>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="space-y-4">
+                <h6 className="text-[#262626] font-semibold">CATEGORIES</h6>
+                <div className="flex flex-col gap-2 items-start">
+                  {categories?.map((link, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setFilter(link.value)}
+                      className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${filter === link.value ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
+                    >
+                      {link.subTitle}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <DownloadWalletwise />
             </div>
           </div>
           <div className="flex items-center justify-between gap-4 flex-wrap">
