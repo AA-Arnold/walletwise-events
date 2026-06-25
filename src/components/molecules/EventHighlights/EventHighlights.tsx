@@ -1,6 +1,6 @@
 import SummaryCard from "@/components/atom/SummaryCard/SummaryCard";
 import EventInfo from "../EventInfo/EventInfo";
-import EventLocation from "../EventLocation/EventLocation";
+// import EventLocation from "../EventLocation/EventLocation";
 import EventLineUp from "../EventLineUp/EventLineUp";
 
 import { EventType } from "@/lib/types";
@@ -39,9 +39,9 @@ const EventHighlights = ({ event }: { event: EventType }) => {
           <h6 className=" font-semibold">About this event</h6>
           <p className="">{event?.description}</p>
         </div>
-        <div className="flex gap-4.75 flex-wrap">
+        <div className="flex justify-center gap-4.75 flex-wrap">
           <EventInfo event={event} />
-          <EventLocation location={event?.address} />
+          {/* <EventLocation location={event?.address} /> */}
         </div>
         <EventLineUp />
       </div>
