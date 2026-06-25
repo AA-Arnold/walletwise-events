@@ -27,7 +27,7 @@ const HeroSection = () => {
                     Live in Abuja
                   </h1>
                   <Link
-                    href={"/peruzzi"}
+                    href={"/event/info/63b36981-b5b5-4b41-8b4f-c99f811b4b39"}
                     className="flex items-center gap-2 bg-white border border-[#E5E5E5] p-3 rounded-[10px] text-[#262626] w-fit"
                   >
                     <span className="text-xs">View details</span>
