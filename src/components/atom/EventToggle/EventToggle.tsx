@@ -15,7 +15,7 @@ const EventToggle = ({
         <button
           key={item}
           onClick={() => onClick(item)}
-          className={`py-2 px-4 cursor-pointer text-sm ${tab === item ? "border-b border-[#5A27CC] text-[#333333] font-semibold" : "text-[#777777] font-medium"}`}
+          className={`py-2 px-4 cursor-pointer text-sm ${tab === item ? "border-b border-[#5A27CC] text-[#333333] font-semibold" : "text-[#777777] font-medium capitalize"}`}
         >
           {item}
         </button>

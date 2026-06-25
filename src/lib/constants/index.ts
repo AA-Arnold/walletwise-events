@@ -1,89 +1,44 @@
 export const socialLinks = [
   {
     id: 1,
-    url: "",
+    url: "https://www.instagram.com/walletwiseng",
     iconUrl: "/assets/icons/Instagram.svg",
     name: "instagram",
   },
   {
     id: 2,
-    url: "",
+    url: "https://www.facebook.com/walletwiseng",
     iconUrl: "/assets/icons/Facebook.svg",
     name: "facebook",
   },
   {
     id: 3,
-    url: "",
+    url: "https://x.com/walletwiseng",
     iconUrl: "/assets/icons/XLogo.svg",
     name: "x",
   },
 ];
 
-export const footerLinks = [
+export const categories = [
   {
-    title: "EXPLORE",
-    links: [
-      {
-        subTitle: "Upcoming events",
-        link: "",
-      },
-      {
-        subTitle: "Past events",
-        link: "",
-      },
-      {
-        subTitle: "Concerts",
-        link: "",
-      },
-      {
-        subTitle: "Beauty Pageants",
-        link: "",
-      },
-      {
-        subTitle: "Conferences",
-        link: "",
-      },
-    ],
+    subTitle: "Beauty Pageants",
+    value: "beauty_pageant",
   },
   {
-    title: "CATEGORIES",
-    links: [
-      {
-        subTitle: "Beauty Pageants",
-        link: "",
-      },
-      {
-        subTitle: "Conferences",
-        link: "",
-      },
-      {
-        subTitle: "Upcoming events",
-        link: "",
-      },
-      {
-        subTitle: "Past events",
-        link: "",
-      },
-      {
-        subTitle: "Concerts",
-        link: "",
-      },
-    ],
+    subTitle: "Conferences",
+    value: "conferences",
   },
   {
-    title: "SUPPORT",
-    links: [
-      {
-        subTitle: "Help centre",
-        link: "",
-      },
-      {
-        subTitle: "Contact us",
-        link: "",
-      },
-    ],
+    subTitle: "Concerts",
+    value: "concert",
+  },
+  {
+    subTitle: "General",
+    value: "general",
   },
 ];
+
+export const tabs = ["upcoming", "past"];
 
 export const dummyEvents = [
   {

@@ -1,3 +1,4 @@
+import { numberWithCommas } from "@/lib/helpers/formatNumber";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +13,7 @@ const EventCard = ({
 }: {
   imgUrl: string;
   category: string;
-  amount: string;
+  amount: number;
   location: string;
   date: string;
   eventName: string;
@@ -39,7 +40,9 @@ const EventCard = ({
         <p className="">{date},</p>
         <p className="flex-1 w-full truncate">{location}</p>
       </div>
-      <p className="text-[#737373] text-sm font-medium">₦{amount} per ticket</p>
+      <p className="text-[#737373] text-sm font-medium">
+        ₦{amount && numberWithCommas(amount)} per ticket
+      </p>
     </Link>
   );
 };
