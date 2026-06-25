@@ -50,12 +50,9 @@ const BookTicket = ({
             key={ticket?.name}
             type={ticket?.name}
             amount={ticket?.price}
-            discountPrice={ticket?.discountPrice}
             seatsLeft={ticket?.quantity}
             quantitySelected={getQuantity(ticket?.name)}
-            increase={() =>
-              increase(ticket?.name, ticket?.price, ticket?.discountPrice)
-            }
+            increase={() => increase(ticket?.name, ticket?.price)}
             descrease={() => decrease(ticket?.name)}
           />
         ))}

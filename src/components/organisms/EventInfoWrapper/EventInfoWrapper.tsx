@@ -16,8 +16,6 @@ const EventInfoWrapper = ({ eventId }: { eventId: string }) => {
 
   const { data, isLoading } = useGetEventInfo(eventId);
 
-  console.log("data", data);
-
   const tabs = ["Event highlights", "Book ticket"];
 
   return (

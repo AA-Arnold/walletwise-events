@@ -43,7 +43,7 @@ const EventHighlights = ({ event }: { event: EventType }) => {
           <EventInfo event={event} />
           {/* <EventLocation location={event?.address} /> */}
         </div>
-        <EventLineUp />
+        <EventLineUp id={event?.eventId} />
       </div>
     </div>
   );
