@@ -47,8 +47,15 @@ const ContentWrapper = () => {
           {tab === "past" && (
             <PastEvents events={events} isLoading={isLoading} />
           )}
-          {(search.trim() !== "" || filter) && events.length < 1 && (
+          {(search.trim() !== "" || filter) && events.length < 1 ? (
             <NoEventsFound handleClear={handleClear} />
+          ) : (search.trim() === "" || !filter) && events.length < 1 ? (
+            <NoEventsFound
+              handleClear={handleClear}
+              desc="There are currently no events available. Check back later for upcoming events and experiences."
+            />
+          ) : (
+            ""
           )}
         </div>
       </Container>
