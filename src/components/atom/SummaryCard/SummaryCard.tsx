@@ -6,7 +6,7 @@ const SummaryCard = ({
   desc,
 }: {
   iconUrl: string;
-  value: string;
+  value: number | string;
   desc: string;
 }) => {
   return (

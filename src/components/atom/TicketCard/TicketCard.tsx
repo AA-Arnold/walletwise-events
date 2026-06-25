@@ -1,13 +1,22 @@
+import { numberWithCommas } from "@/lib/helpers/formatNumber";
 import { Minus, Plus } from "lucide-react";
 
 const TicketCard = ({
   type,
   amount,
   seatsLeft,
+  quantitySelected,
+  increase,
+  descrease,
+  discountPrice,
 }: {
   type: string;
-  amount: string;
+  amount: number;
+  discountPrice?: number;
   seatsLeft: number;
+  quantitySelected: number;
+  increase: () => void;
+  descrease: () => void;
 }) => {
   const quantityStyle =
     seatsLeft > 10
@@ -18,9 +27,9 @@ const TicketCard = ({
 
   const seat =
     seatsLeft > 10
-      ? `${seatsLeft} left`
+      ? `${seatsLeft && numberWithCommas(seatsLeft)} left`
       : seatsLeft <= 10 && seatsLeft > 0
-        ? `Only ${seatsLeft} left`
+        ? `Only ${seatsLeft && numberWithCommas(seatsLeft)} left`
         : "Sold out";
 
   return (
@@ -42,17 +51,40 @@ const TicketCard = ({
               Standing area - Full event access
             </p>
           </div>
-          <p className="text-sm font-medium text-black">₦{amount}</p>
+          <div>
+            {discountPrice ? (
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[#737373] line-through">
+                  ₦{numberWithCommas(amount)}
+                </span>
+
+                <span className="text-sm font-medium">
+                  ₦{numberWithCommas(discountPrice)}
+                </span>
+              </div>
+            ) : (
+              <p className="text-sm font-medium">₦{numberWithCommas(amount)}</p>
+            )}
+          </div>
         </div>
         <div className="flex items-center gap-2 border border-[#E5E5E5] rounded-[8px]">
           <button
-            disabled={seatsLeft === 0}
-            className="p-3 border-r border-[#E5E5E5]"
+            type="button"
+            onClick={descrease}
+            disabled={seatsLeft === 0 || quantitySelected === 0}
+            className={`p-3 border-r border-[#E5E5E5] ${seatsLeft === 0 || quantitySelected === 0 ? "cursor-not-allowed" : "cursor-pointer"}`}
           >
             <Minus className="w-4 h-4" />
           </button>
-          <div className="p-3 border-r border-[#E5E5E5]">0</div>
-          <button disabled={seatsLeft === 0} className="p-3">
+          <div className="p-3 border-r border-[#E5E5E5]">
+            {quantitySelected}
+          </div>
+          <button
+            type="button"
+            onClick={increase}
+            disabled={seatsLeft === 0 || quantitySelected === seatsLeft}
+            className={`p-3  ${seatsLeft === 0 || quantitySelected === seatsLeft ? "cursor-not-allowed" : "cursor-pointer"}`}
+          >
             <Plus className="w-4 h-4" />
           </button>
         </div>

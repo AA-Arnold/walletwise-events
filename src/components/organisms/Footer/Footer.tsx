@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/atom/Container/Container";
-
-import { categories, socialLinks, tabs } from "@/lib/constants";
-import { useGetEvents } from "@/lib/hooks/useGetEvents";
 import DownloadWalletwise from "@/components/atom/DownloadWalletwise/DownloadWalletwise";
+import OurSocials from "@/components/molecules/OurSocials/OurSocials";
+
+import { categories, tabs } from "@/lib/constants";
+import { useGetEvents } from "@/lib/hooks/useGetEvents";
 
 const Footer = () => {
   const { filter, setFilter, tab, setTab } = useGetEvents();
@@ -30,25 +31,7 @@ const Footer = () => {
               <p className="leading-6 text-[#262626]">
                 Discover and book the best live experience across Nigeria
               </p>
-              <div className="flex items-center gap-2">
-                {socialLinks?.map((item) => (
-                  <a
-                    href={item?.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={item.id}
-                    className="bg-[#F5F5F5] rounded-[11.43px] w-10 h-10 flex items-center justify-center group"
-                  >
-                    <Image
-                      src={item.iconUrl}
-                      alt={item?.name}
-                      width={17}
-                      height={17}
-                      className="hover:scale-110 transition-all duration-300"
-                    />
-                  </a>
-                ))}
-              </div>
+              <OurSocials />
             </div>
             <div className="flex md:gap-30.25 sm:gap-20 gap-10 flex-wrap">
               <div className="space-y-4">
