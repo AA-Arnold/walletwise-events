@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
-
 import Button from "@/components/atom/Button/Button";
 import Input from "@/components/atom/Input/Input";
 import Label from "@/components/atom/Label/Label";
 import TicketCard from "@/components/atom/TicketCard/TicketCard";
 
-import { Check, Loader } from "lucide-react";
+import { Loader } from "lucide-react";
 import { EventTicketType } from "@/lib/types";
 import { usePurchaseTicket } from "@/lib/hooks/usePurchaseTicket";
 import { numberWithCommas } from "@/lib/helpers/formatNumber";
@@ -21,8 +19,6 @@ const BookTicket = ({
   eventId: string;
   serviceFee: string;
 }) => {
-  const [check, setCheck] = useState(false);
-
   const {
     handleSubmit,
     handleChange,
@@ -54,12 +50,9 @@ const BookTicket = ({
             key={ticket?.name}
             type={ticket?.name}
             amount={ticket?.price}
-            discountPrice={ticket?.discountPrice}
             seatsLeft={ticket?.quantity}
             quantitySelected={getQuantity(ticket?.name)}
-            increase={() =>
-              increase(ticket?.name, ticket?.price, ticket?.discountPrice)
-            }
+            increase={() => increase(ticket?.name, ticket?.price)}
             descrease={() => decrease(ticket?.name)}
           />
         ))}

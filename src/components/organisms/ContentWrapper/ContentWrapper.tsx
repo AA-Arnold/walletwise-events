@@ -26,6 +26,14 @@ const ContentWrapper = () => {
     handleClear,
   } = useGetEvents();
 
+  const sortedEvents = [...events].sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
+
   const tabs = ["upcoming", "past"];
 
   return (
@@ -42,10 +50,10 @@ const ContentWrapper = () => {
           <EventToggle tabs={tabs} tab={tab} onClick={setTab} />
 
           {tab === "upcoming" && (
-            <EventWrapper events={events} isLoading={isLoading} />
+            <EventWrapper events={sortedEvents} isLoading={isLoading} />
           )}
           {tab === "past" && (
-            <PastEvents events={events} isLoading={isLoading} />
+            <PastEvents events={sortedEvents} isLoading={isLoading} />
           )}
           {(search.trim() !== "" || filter) && events.length < 1 ? (
             <NoEventsFound handleClear={handleClear} />

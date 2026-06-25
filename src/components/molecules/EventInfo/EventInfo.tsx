@@ -14,7 +14,7 @@ const EventInfo = ({ event }: { event: EventType }) => {
         : "NIL";
 
   return (
-    <div className="max-w-103.5 w-full min-w-72.5 rounded-[16px] border border-[#E5E5E5] p-6 space-y-5.75">
+    <div className="w-full min-w-72.5 rounded-[16px] border border-[#E5E5E5] p-6 space-y-5.75">
       <h6 className="font-semibold">Event Info</h6>
       <div className="space-y-4">
         <InfoColumn

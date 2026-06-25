@@ -8,11 +8,9 @@ const TicketCard = ({
   quantitySelected,
   increase,
   descrease,
-  discountPrice,
 }: {
   type: string;
   amount: number;
-  discountPrice?: number;
   seatsLeft: number;
   quantitySelected: number;
   increase: () => void;
@@ -52,19 +50,7 @@ const TicketCard = ({
             </p>
           </div>
           <div>
-            {discountPrice ? (
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-[#737373] line-through">
-                  ₦{numberWithCommas(amount)}
-                </span>
-
-                <span className="text-sm font-medium">
-                  ₦{numberWithCommas(discountPrice)}
-                </span>
-              </div>
-            ) : (
-              <p className="text-sm font-medium">₦{numberWithCommas(amount)}</p>
-            )}
+            <p className="text-sm font-medium">₦{numberWithCommas(amount)}</p>
           </div>
         </div>
         <div className="flex items-center gap-2 border border-[#E5E5E5] rounded-[8px]">
