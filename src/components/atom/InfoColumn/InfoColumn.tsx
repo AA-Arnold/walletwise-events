@@ -7,7 +7,7 @@ const InfoColumn = ({
 }: {
   Icon: LucideIcon;
   label: string;
-  value: string;
+  value: string | number;
 }) => {
   return (
     <div className="flex gap-3.5">

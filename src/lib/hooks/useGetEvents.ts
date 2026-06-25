@@ -49,8 +49,6 @@ export const useGetEvents = () => {
 
   const allEvents = data?.pages.flatMap((page) => page.data) ?? [];
 
-  console.log("data", data);
-
   return {
     search,
     handleSearchChange,

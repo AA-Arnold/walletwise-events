@@ -1,12 +1,14 @@
 import Container from "@/components/atom/Container/Container";
 import InfoRow from "@/components/atom/InfoRow/InfoRow";
 
-const EventInfoMain = () => {
+import { EventType } from "@/lib/types";
+
+const EventInfoMain = ({ event }: { event: EventType }) => {
   return (
     <div
       className="w-full h-141"
       style={{
-        background: "url('/assets/images/hero-bg.jpg')",
+        background: `url(${event?.imageUrl})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -19,17 +21,17 @@ const EventInfoMain = () => {
               <p className="bg-black/70 py-0.5 px-2 rounded-[32px] border-[0.5px] border-[#E5E5E533] text-xs  font-semibold w-fit">
                 Upcoming Event
               </p>
-              <h2 className="sm:text-[48px] text-[35px] leading-[100%] tracking-normal font-extrabold">
-                BURNA BOY -LIVE AT EKO CONVENTION CENTRE
+              <h2 className="sm:text-[48px] text-[35px] leading-[100%] tracking-normal font-extrabold uppercase">
+                {event?.title}
               </h2>
               <div className="flex gap-6 flex-wrap">
                 <InfoRow
                   iconUrl="/assets/icons/MapPin.svg"
-                  desc="Eko Convention Centre, Victoria Island"
+                  desc={event?.address}
                 />
                 <InfoRow
                   iconUrl="/assets/icons/MapPin.svg"
-                  desc="8:00 PM - 12 AM"
+                  desc={`${event?.computed?.formattedDate} ${event?.time ? `- ${event?.time}` : ""}`}
                 />
               </div>
             </div>

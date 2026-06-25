@@ -6,13 +6,42 @@ import Button from "@/components/atom/Button/Button";
 import Input from "@/components/atom/Input/Input";
 import Label from "@/components/atom/Label/Label";
 import TicketCard from "@/components/atom/TicketCard/TicketCard";
-import { Check } from "lucide-react";
 
-const BookTicket = () => {
+import { Check, Loader } from "lucide-react";
+import { EventTicketType } from "@/lib/types";
+import { usePurchaseTicket } from "@/lib/hooks/usePurchaseTicket";
+import { numberWithCommas } from "@/lib/helpers/formatNumber";
+
+const BookTicket = ({
+  ticketTypes,
+  eventId,
+  serviceFee,
+}: {
+  ticketTypes: EventTicketType[];
+  eventId: string;
+  serviceFee: string;
+}) => {
   const [check, setCheck] = useState(false);
 
+  const {
+    handleSubmit,
+    handleChange,
+    userInfo,
+    isPending,
+    increase,
+    decrease,
+    getQuantity,
+    selectedTicket,
+    totalAmount,
+  } = usePurchaseTicket(eventId);
+
+  const finalAmount = totalAmount + Number(serviceFee || 0);
+
   return (
-    <form className="max-w-158 w-full border border-[#E5E5E5] rounded-[16px] p-6 space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-158 w-full border border-[#E5E5E5] rounded-[16px] p-6 space-y-6"
+    >
       <div className="space-y-3.5">
         <h6 className="font-semibold">Book your ticket</h6>
         <p className="max-w-99.25 w-full">
@@ -20,22 +49,41 @@ const BookTicket = () => {
         </p>
       </div>
       <div className="space-y-4 w-full">
-        <TicketCard amount="5,000" seatsLeft={48} type="Regular" />
-        <TicketCard amount="25,000" seatsLeft={10} type="VIP" />
-        <TicketCard amount="100,000" seatsLeft={0} type="Table Of 5" />
+        {ticketTypes?.map((ticket) => (
+          <TicketCard
+            key={ticket?.name}
+            type={ticket?.name}
+            amount={ticket?.price}
+            discountPrice={ticket?.discountPrice}
+            seatsLeft={ticket?.quantity}
+            quantitySelected={getQuantity(ticket?.name)}
+            increase={() =>
+              increase(ticket?.name, ticket?.price, ticket?.discountPrice)
+            }
+            descrease={() => decrease(ticket?.name)}
+          />
+        ))}
       </div>
       <div className="space-y-4">
         <div className="space-y-6">
           <div className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="fullName" title="Full name" />
-              <Input id="fullName" name="fullName" placeholder="John Doe" />
+              <Input
+                id="fullName"
+                value={userInfo?.fullName}
+                onChange={handleChange}
+                name="fullName"
+                placeholder="John Doe"
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email" title="Email" />
               <Input
-                type="email"
                 id="email"
+                type="email"
+                value={userInfo?.email}
+                onChange={handleChange}
                 name="email"
                 placeholder="you@example.com"
               />
@@ -43,26 +91,44 @@ const BookTicket = () => {
             <div className="space-y-2">
               <Label htmlFor="phone" title="Phone number" />
               <Input
+                id="phoneNumber"
                 type="number"
-                id="phone"
-                name="phone"
+                value={userInfo?.phoneNumber}
+                onChange={handleChange}
+                name="phoneNumber"
                 placeholder="08034250088"
               />
             </div>
           </div>
           <div className="space-y-5.5">
             <div className="space-y-4 text-sm">
-              <p className="">No tickets selected yet</p>
+              {!selectedTicket ? (
+                <p>No tickets selected yet</p>
+              ) : (
+                <div className="flex justify-between">
+                  <p>
+                    {selectedTicket.ticketType} × {selectedTicket.quantity}
+                  </p>
+
+                  <p>
+                    ₦
+                    {numberWithCommas(
+                      (selectedTicket.discountPrice ?? selectedTicket.price) *
+                        selectedTicket.quantity,
+                    )}
+                  </p>
+                </div>
+              )}
               <div className="flex items-center justify-between gap-2">
-                <p>Service fee (5%)</p>
-                <p>₦0</p>
+                <p>Service fee</p>
+                <p>₦{numberWithCommas(Number(serviceFee))}</p>
               </div>
               <div className="flex items-center justify-between gap-2 font-semibold">
                 <p>Total</p>
-                <p>₦0</p>
+                <p>₦{numberWithCommas(finalAmount)}</p>
               </div>
             </div>
-            <div className="flex gap-3.25">
+            {/* <div className="flex gap-3.25">
               <button
                 type="button"
                 onClick={() => setCheck((prev) => !prev)}
@@ -71,10 +137,18 @@ const BookTicket = () => {
                 <Check className="w-4 h-4" />
               </button>
               <div className=""></div>
-            </div>
+            </div> */}
           </div>
-          <Button variant="primary" className="w-full font-medium h-10">
-            Pay ₦20,000
+          <Button
+            type="submit"
+            variant="primary"
+            className="w-full font-medium h-10"
+          >
+            {isPending ? (
+              <Loader className="animate-spin w-8 h-8" />
+            ) : (
+              <>Pay ₦{numberWithCommas(finalAmount)}</>
+            )}
           </Button>
         </div>
         <p className="text-center text-[#737373] text-sm">

@@ -1,4 +1,5 @@
 import Container from "@/components/atom/Container/Container";
+import OurSocials from "@/components/molecules/OurSocials/OurSocials";
 import Image from "next/image";
 
 const NewsLetter = () => {
@@ -24,16 +25,7 @@ const NewsLetter = () => {
                 Be the first to know
               </p>
             </div>
-            <form className="max-w-84.25 w-full border border-[#E5E5E5] flex sm:items-center max-sm:flex-col sm:gap-11 gap-2  bg-white pr-1 py-1 pl-4 rounded-[12px]">
-              <input
-                type="text"
-                className="h-6 flex-1 w-full bg-inherit outline-none placeholder:text-[#737373] font-medium"
-                placeholder="Enter email address"
-              />
-              <button className="bg-[#5A27CC] text-white py-2 px-4 rounded-[10px] text-sm w-fit">
-                Notify me
-              </button>
-            </form>
+            <OurSocials />
           </div>
           <div className="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-between flex-wrap gap-10 sm:px-8 px-6 z-10">
             <div className="">
@@ -44,16 +36,7 @@ const NewsLetter = () => {
                 Be the first to know
               </p>
             </div>
-            <form className="max-w-84.25 w-full border border-[#E5E5E5] flex sm:items-center max-sm:flex-col sm:gap-11 gap-2  bg-white pr-1 py-1 pl-4 rounded-[12px]">
-              <input
-                type="text"
-                className="h-6 flex-1 w-full bg-inherit outline-none placeholder:text-[#737373] font-medium"
-                placeholder="Enter email address"
-              />
-              <button className="bg-[#5A27CC] text-white py-2 px-4 rounded-[10px] text-sm w-fit">
-                Notify me
-              </button>
-            </form>
+            <OurSocials />
           </div>
         </div>
       </Container>
