@@ -8,6 +8,7 @@ import FilterWrapper from "@/components/molecules/FilterWrapper/FilterWrapper";
 import PastEvents from "@/components/molecules/PastEvents/PastEvents";
 
 import { useGetEvents } from "@/lib/hooks/useGetEvents";
+import Footer from "../Footer/Footer";
 
 const ContentWrapper = () => {
   const {
@@ -37,7 +38,7 @@ const ContentWrapper = () => {
   const tabs = ["upcoming", "past"];
 
   return (
-    <div className="pt-8 pb-28">
+    <div className="pt-8 space-y-28">
       <Container>
         <div className="space-y-8">
           <FilterWrapper
@@ -67,6 +68,12 @@ const ContentWrapper = () => {
           )}
         </div>
       </Container>
+      <Footer
+        setFilter={setFilter}
+        onClick={setTab}
+        filter={filter}
+        tab={tab}
+      />
     </div>
   );
 };

@@ -8,10 +8,21 @@ import DownloadWalletwise from "@/components/atom/DownloadWalletwise/DownloadWal
 import OurSocials from "@/components/molecules/OurSocials/OurSocials";
 
 import { categories, tabs } from "@/lib/constants";
-import { useGetEvents } from "@/lib/hooks/useGetEvents";
 
-const Footer = () => {
-  const { filter, setFilter, tab, setTab } = useGetEvents();
+const Footer = ({
+  filter,
+  setFilter,
+  tab,
+  onClick,
+}: {
+  filter?: string;
+  tab?: string;
+  onClick?: (item: string) => void;
+  setFilter?: (value: string) => void;
+}) => {
+  const showFilter = filter !== undefined && setFilter !== undefined;
+
+  const showTab = tab !== undefined && onClick !== undefined;
 
   return (
     <footer className="border-t border-[#E5E5E5] py-8 w-full">
@@ -34,37 +45,42 @@ const Footer = () => {
               <OurSocials />
             </div>
             <div className="flex md:gap-30.25 sm:gap-20 gap-10 flex-wrap">
-              <div className="space-y-4">
-                <h6 className="text-[#262626] font-semibold uppercase">
-                  Explore
-                </h6>
-                <div className="flex flex-col gap-2 items-start">
-                  {tabs?.map((link, index) => (
-                    <button
-                      type="button"
-                      key={index}
-                      onClick={() => setTab(link)}
-                      className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${tab === link ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
-                    >
-                      {link}
-                    </button>
-                  ))}
+              {showTab && (
+                <div className="space-y-4">
+                  <h6 className="text-[#262626] font-semibold uppercase">
+                    Explore
+                  </h6>
+                  <div className="flex flex-col gap-2 items-start">
+                    {tabs?.map((link, index) => (
+                      <button
+                        type="button"
+                        key={index}
+                        onClick={() => onClick(link)}
+                        className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${tab === link ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
+                      >
+                        {link}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="space-y-4">
-                <h6 className="text-[#262626] font-semibold">CATEGORIES</h6>
-                <div className="flex flex-col gap-2 items-start">
-                  {categories?.map((link, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setFilter(link.value)}
-                      className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${filter === link.value ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
-                    >
-                      {link.subTitle}
-                    </button>
-                  ))}
+              )}
+
+              {showFilter && (
+                <div className="space-y-4">
+                  <h6 className="text-[#262626] font-semibold">CATEGORIES</h6>
+                  <div className="flex flex-col gap-2 items-start">
+                    {categories?.map((link, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setFilter(link.value)}
+                        className={` text-sm font-medium transition-colors cursor-pointer duration-300 capitalize ${filter === link.value ? "text-[#5A27CC]" : "font-[#737373] hover:text-[#5A27CC] "}`}
+                      >
+                        {link.subTitle}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
               <DownloadWalletwise />
             </div>
           </div>
