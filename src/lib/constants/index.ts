@@ -1,7 +1,7 @@
 export const socialLinks = [
   {
     id: 1,
-    url: "https://www.instagram.com/walletwiseng",
+    url: "https://www.instagram.com/walletwiseltd",
     iconUrl: "/assets/icons/Instagram.svg",
     name: "instagram",
   },
