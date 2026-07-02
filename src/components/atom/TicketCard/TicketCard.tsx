@@ -20,7 +20,7 @@ const TicketCard = ({
     seatsLeft > 10
       ? "bg-[#E2F5E4] text-[#25AD32]"
       : seatsLeft <= 10 && seatsLeft > 0
-        ? "bg-[#FDF5EA] text-[#EE9C2E]"
+        ? "bg-[#FEF2F2] text-[#FB2C36]"
         : "";
 
   const seat =
@@ -39,11 +39,13 @@ const TicketCard = ({
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <h4 className="text-sm font-medium text-black">{type}</h4>
-              <span
-                className={`block py-0.5 px-2 rounded-[32px] text-xs font-semibold ${quantityStyle}`}
-              >
-                {seat}
-              </span>
+              {seatsLeft < 101 && (
+                <span
+                  className={`block py-0.5 px-2 rounded-[32px] text-xs font-semibold ${quantityStyle}`}
+                >
+                  {seat}
+                </span>
+              )}
             </div>
             <p className="text-xs font-medium text-[#737373]">
               Standing area - Full event access
