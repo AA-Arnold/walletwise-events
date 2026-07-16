@@ -33,6 +33,12 @@ const BookTicket = ({
 
   const finalAmount = totalAmount + Number(serviceFee || 0);
 
+  const seatAvailable: Record<string, string> = {
+    Table6: "Table of 6",
+    Table8: "Table of 8",
+    Table10: "Table of 10",
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -48,7 +54,7 @@ const BookTicket = ({
         {ticketTypes?.map((ticket) => (
           <TicketCard
             key={ticket?.name}
-            type={ticket?.name}
+            type={seatAvailable[ticket?.name] || ticket?.name}
             amount={ticket?.price}
             seatsLeft={ticket?.quantity}
             quantitySelected={getQuantity(ticket?.name)}
