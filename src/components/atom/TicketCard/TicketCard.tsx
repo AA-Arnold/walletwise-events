@@ -30,6 +30,8 @@ const TicketCard = ({
         ? `Only ${seatsLeft && numberWithCommas(seatsLeft)} left`
         : "Sold out";
 
+  const isRegular = type === "Regular";
+
   return (
     <div
       className={`rounded-[16px] border border-[#E5E5E5] p-4 ${seatsLeft === 0 && "opacity-45"}`}
@@ -48,7 +50,7 @@ const TicketCard = ({
               )}
             </div>
             <p className="text-xs font-medium text-[#737373]">
-              Standing area - Full event access
+              {isRegular ? "Standing area" : "Seating area"}
             </p>
           </div>
           <div>
