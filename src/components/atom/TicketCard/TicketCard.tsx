@@ -30,7 +30,7 @@ const TicketCard = ({
         ? `Only ${seatsLeft && numberWithCommas(seatsLeft)} left`
         : "Sold out";
 
-  const isRegular = type === "Regular";
+  const isRegular = type === "Regular" || type === "Early bird";
 
   return (
     <div

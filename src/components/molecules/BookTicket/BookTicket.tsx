@@ -34,6 +34,7 @@ const BookTicket = ({
   const finalAmount = totalAmount + Number(serviceFee || 0);
 
   const seatAvailable: Record<string, string> = {
+    Regular: "Early bird",
     Table6: "Table of 6",
     Table8: "Table of 8",
     Table10: "Table of 10",
