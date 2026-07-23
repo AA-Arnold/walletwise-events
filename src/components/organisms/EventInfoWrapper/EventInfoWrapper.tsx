@@ -10,6 +10,7 @@ import BookTicket from "@/components/molecules/BookTicket/BookTicket";
 import EventInfoSkeleton from "@/components/atom/skeleton/EventInfoSkeleton";
 
 import { useGetEventInfo } from "@/lib/hooks/useGetEventInfo";
+import NewsLetter from "../NewsLetter/NewsLetter";
 
 const EventInfoWrapper = ({ eventId }: { eventId: string }) => {
   const [tab, setTab] = useState("Event highlights");
@@ -26,6 +27,9 @@ const EventInfoWrapper = ({ eventId }: { eventId: string }) => {
         <>
           <EventInfoMain event={data} />
           <div className="py-10">
+            <div className="pb-8 w-full">
+              <NewsLetter />
+            </div>
             <Container>
               <EventToggle tabs={tabs} tab={tab} onClick={setTab} />
               <div className="flex justify-center py-10">
